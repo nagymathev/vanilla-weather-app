@@ -10,14 +10,14 @@ type WeatherData = {
     temp_c: number;
 };
 
-let input = document.querySelector<HTMLInputElement>("#cityInput")!;
+const input = document.querySelector<HTMLInputElement>("#cityInput")!;
 input.addEventListener("input", () => {
     if (input.value !== "") submit.classList.remove("btn-disabled");
     else submit.classList.add("btn-disabled");
 });
 
-let submit = document.querySelector(".query button")!;
-let loadingIcon = document.createElement("span");
+const submit = document.querySelector(".query button")!;
+const loadingIcon = document.createElement("span");
 loadingIcon.classList.add("loading");
 submit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -29,10 +29,10 @@ submit.addEventListener("click", (e) => {
 });
 
 async function getWeatherData(city: string) {
-    let res = await fetch(
+    const res = await fetch(
         `http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_KEY}&q=${city}`
     );
-    let data = await res.json();
+    const data = await res.json();
     return {
         name: data.location.name,
         condition: data.current.condition,
@@ -41,13 +41,13 @@ async function getWeatherData(city: string) {
 }
 
 async function displayResults(data: WeatherData) {
-    let gifData = await fetch(
+    const gifData = await fetch(
         `https://api.giphy.com/v1/gifs/search?api_key=${import.meta.env.VITE_GIPHY_KEY}&q=${
             data.condition.text
         }`
     );
-    let gif = await gifData.json();
-    let resElem = document.querySelector(".result")!;
+    const gif = await gifData.json();
+    const resElem = document.querySelector(".result")!;
     resElem.classList.remove("hidden");
     document.querySelector(".divider")!.classList.remove("hidden");
     resElem.innerHTML = `
