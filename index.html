@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + TS</title>
+    </head>
+    <body>
+        <div class="flex flex-col min-h-screen">
+            <div class="navbar bg-base-100">
+                <a class="btn btn-ghost text-2xl">Weather App</a>
+            </div>
+            <div
+                class="flex flex-grow flex-col w-full justify-center place-items-center bg-base-200"
+                id="app">
+                <div
+                    class="query flex-grow-0 flex flex-col gap-2 card bg-base-100 rounded-md p-5 shadow-2xl">
+                    <label class="label p-0">
+                        <span
+                            class="label-text text-sm font-extrabold bg-gradient-to-r text-transparent bg-clip-text from-pink-500 to-teal-500"
+                            >Which city?</span
+                        >
+                    </label>
+                    <input
+                        class="input input-bordered"
+                        type="text"
+                        name="city"
+                        id="cityInput"
+                        placeholder="E.g. London" />
+                    <button class="btn btn-disabled">Get Data</button>
+                </div>
+                <div class="divider hidden">Results</div>
+                <div class="result card bg-base-100 rounded-md p-5 shadow-2xl hidden"></div>
+            </div>
+        </div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
