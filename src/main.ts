@@ -30,7 +30,7 @@ submit.addEventListener("click", (e) => {
 
 async function getWeatherData(city: string) {
     const res = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_KEY}&q=${city}`
+        `https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_KEY}&q=${city}`
     );
     const data = await res.json();
     return {
